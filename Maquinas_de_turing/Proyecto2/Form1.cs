@@ -43,6 +43,12 @@ namespace Proyecto2
             Maquina2(0, 1);
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LlenarDGV();
+            Maquina1(0, 1);
+        }
+
         public void LlenarDGV()
         {
             dgv.Rows.Clear();
@@ -626,6 +632,276 @@ namespace Proyecto2
             }
         }
 
+        public void Maquina3(int estado, int cabezal)
+        {
+            string head = dgv.Rows[cabezal].Cells[0].Value.ToString();
+
+            switch(estado)
+            {
+                case 0:
+
+                    if (head == "1")
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = "1";
+                        cabezal++;
+
+                    }
+                    else if (head == "*")
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = "*";
+                        cabezal++;
+
+                    }
+                    else if (head == " " || head == null || head == "")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "=";
+                        cabezal--;
+                        dgv.Rows.Add(" ");
+                    }
+                    else if (head == "=")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "=";
+                        cabezal--;
+                    }
+                    else if (head == "x")
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal++;
+                    }
+
+                    else
+                    {
+                        throw new Exception("Símbolos incorrectos.");
+                    }
+                    Maquina3(estado, cabezal);
+
+                    break;
+                case 1:
+                    if (head == "1")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "1";
+                        cabezal--;
+
+                    }
+                    else if (head == "*")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "*";
+                        cabezal--;
+
+                    }
+                    else if (head == " " || head == null || head == "")
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+                    }
+                    else
+                    {
+                        throw new Exception("Símbolos incorrectos.");
+                    }
+                    Maquina3(estado, cabezal);
+
+                    break;
+                case 2:
+                    if (head == "1")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal--;
+
+                    }
+                    else if (head == "*")
+                    {
+                        estado = 8;
+                        dgv.Rows[cabezal].Cells[0].Value = "*";
+                        cabezal--;
+
+                    }
+                    else if (head == "x")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal--;
+                    }
+                    else
+                    {
+                        throw new Exception("Símbolos incorrectos.");
+                    }
+                    Maquina3(estado, cabezal);
+
+                    break;
+                case 3:
+                    if (head == "1")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "1";
+                        cabezal--;
+
+                    }
+                    else if (head == "*")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "*";
+                        cabezal--;
+
+                    }
+                    else if (head == " " || head == null || head == "")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+                    }
+                    else
+                    {
+                        throw new Exception("Símbolos incorrectos.");
+                    }
+                    Maquina3(estado, cabezal);
+
+                    break;
+                case 4:
+                    if (head == "1")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "y";
+                        cabezal++;
+
+                    }
+                    else if (head == "*")
+                    {
+                        estado = 7;
+                        dgv.Rows[cabezal].Cells[0].Value = "*";
+                        cabezal--;
+
+                    }
+                    else if (head == "y")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = "y";
+                        cabezal++;
+                    }
+                    else
+                    {
+                        throw new Exception("Símbolos incorrectos.");
+                    }
+                    Maquina3(estado, cabezal);
+
+                    break;
+                case 5:
+                    if (head == "1")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "1";
+                        cabezal++;
+
+                    }
+                    else if (head == "*")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "*";
+                        cabezal++;
+
+                    }
+                    else if (head == " " || head == null || head == "")
+                    {
+                        estado = 6;
+                        dgv.Rows[cabezal].Cells[0].Value = "1";
+                        cabezal--;
+                        dgv.Rows.Add(" ");
+                    }
+                    else if (head == "=")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "=";
+                        cabezal++;
+                    }
+                    else if (head == "x")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal++;
+                    }
+                    else
+                    {
+                        throw new Exception("Símbolos incorrectos.");
+                    }
+                    Maquina3(estado, cabezal);
+                    break;
+                case 6:
+                    if (head == "1")
+                    {
+                        estado = 6;
+                        dgv.Rows[cabezal].Cells[0].Value = "1";
+                        cabezal--;
+
+                    }
+                    else if (head == "*")
+                    {
+                        estado = 6;
+                        dgv.Rows[cabezal].Cells[0].Value = "*";
+                        cabezal--;
+
+                    }
+                    else if (head == " " || head == null || head == "")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+                    }
+                    else if (head == "=")
+                    {
+                        estado = 6;
+                        dgv.Rows[cabezal].Cells[0].Value = "=";
+                        cabezal--;
+                    }
+                    else if (head == "x")
+                    {
+                        estado = 6;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal--;
+                    }
+                    else if (head == "y")
+                    {
+                        estado = 6;
+                        dgv.Rows[cabezal].Cells[0].Value = "y";
+                        cabezal--;
+                    }
+                    else
+                    {
+                        throw new Exception("Símbolos incorrectos.");
+                    }
+                    Maquina3(estado, cabezal);
+                    break;
+                case 7:
+                    if (head == " " || head == "" || head == null)
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+                    }
+                    else if (head == "y")
+                    {
+                        estado = 7;
+                        dgv.Rows[cabezal].Cells[0].Value = "1";
+                        cabezal--;
+                    }
+                    else
+                    {
+                        throw new Exception("Símbolos incorrectos.");
+                    }
+                    Maquina3(estado, cabezal);
+                    break;
+                case 8:
+                    break;
+            }
+        }
+
         public void Maquina4 (int estado, int cabezal)
         {
             string head = dgv.Rows[cabezal].Cells[0].Value.ToString();
@@ -844,10 +1120,10 @@ namespace Proyecto2
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
             LlenarDGV();
-            Maquina1(0, 1);
+            Maquina3(0, 1);
         }
     }
 }
