@@ -37,6 +37,12 @@ namespace Proyecto2
             Maquina4(0, 1);
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LlenarDGV();
+            Maquina2(0, 1);
+        }
+
         public void LlenarDGV()
         {
             dgv.Rows.Clear();
@@ -52,6 +58,259 @@ namespace Proyecto2
 
             dgv.Rows.Add(" ");
             stn = vinput;
+        }
+
+        public void Maquina1(int estado, int cabezal)
+        {
+            string head = dgv.Rows[cabezal].Cells[0].Value.ToString();
+
+            switch (estado)
+            {
+                case 0:
+                    if (head == "a")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 8;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+
+                    }
+
+                    Maquina1(estado, cabezal);
+                    break;
+                case 1:
+                    if (head == "a")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        cabezal++;
+
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "b";
+                        cabezal++;
+
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "c";
+                        cabezal++;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 6;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal--;
+
+                    }
+
+                    Maquina1(estado, cabezal);
+                    break;
+                case 2:
+
+                    if (head == "a")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        cabezal++;
+
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "b";
+                        cabezal++;
+
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "c";
+                        cabezal++;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 7;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal--;
+
+                    }
+
+                    Maquina1(estado, cabezal);
+                    break;
+                case 3:
+                    if (head == "a")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        cabezal++;
+
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "b";
+                        cabezal++;
+
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "c";
+                        cabezal++;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal--;
+
+                    }
+
+                    Maquina1(estado, cabezal);
+                    break;
+                case 4:
+                    if(head == "a")
+                    {
+                        throw new Exception("No es palindromo");
+                    }
+                    else if(head == "b")
+                    {
+                        throw new Exception("No es palindromo");
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal--;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 8;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+
+                    }
+
+                    Maquina1(estado, cabezal);
+                    break;
+                case 5:
+                    if (head == "a")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        cabezal--;
+
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "b";
+                        cabezal--;
+
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "c";
+                        cabezal--;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+
+                    }
+
+                    Maquina1(estado, cabezal);
+                    break;
+                case 6:
+                    if (head == "a")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        cabezal--;
+
+                    }
+                    else if(head == "b")
+                    {
+                        throw new Exception("No es un palíndromo");
+                    }
+                    else if (head == "c")
+                    {
+                        throw new Exception("No es un palíndromo");
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 8;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+
+                    }
+
+                    Maquina1(estado, cabezal);
+                    break;
+                case 7:
+                    if (head == "a")
+                    {
+                        throw new Exception("No es un palíndromo");
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal--;
+
+                    }
+                    else if (head == "c")
+                    {
+                        throw new Exception("No es un palíndromo");
+                    }
+
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 8;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+                    }
+
+                    Maquina1(estado, cabezal);
+                    break;
+                case 8:
+                   // MessageBox.Show("Palindromo");
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void Maquina2(int estado, int cabezal)
@@ -585,10 +844,10 @@ namespace Proyecto2
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             LlenarDGV();
-            Maquina2(0, 1);
+            Maquina1(0, 1);
         }
     }
 }
