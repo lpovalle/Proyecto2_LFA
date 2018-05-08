@@ -28,10 +28,13 @@ namespace Proyecto2
         private void button6_Click(object sender, EventArgs e)
         {
             LlenarDGV();
-
             Maquina5(0, 1);
+        }
 
-
+        private void button5_Click(object sender, EventArgs e)
+        {
+            LlenarDGV();
+            Maquina4(0, 1);
         }
 
         public void LlenarDGV()
@@ -49,6 +52,406 @@ namespace Proyecto2
 
             dgv.Rows.Add(" ");
             stn = vinput;
+        }
+
+        public void Maquina2(int estado, int cabezal)
+        {
+            string head = dgv.Rows[cabezal].Cells[0].Value.ToString();
+
+            switch(estado)
+            {
+                case 0:
+
+                    if (head == "a")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal++;
+
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "y";
+                        cabezal++;
+
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "z";
+                        cabezal++;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal--;
+
+                    }
+                    else if (head == "x")
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal++;
+
+                    }
+                    else if (head == "y")
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = "y";
+                        cabezal++;
+
+                    }
+                    else if (head == "z")
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = "z";
+                        cabezal++;
+
+                    }
+
+
+                    Maquina2(estado, cabezal);
+                    break;
+                case 1:
+                    if (head == "a")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        cabezal++;
+
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "b";
+                        cabezal++;
+
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "c";
+                        cabezal++;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal--;
+                        dgv.Rows.Add(" ");
+
+                    }
+                    else if (head == "x")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal++;
+
+                    }
+                    else if (head == "y")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "y";
+                        cabezal++;
+
+                    }
+                    else if (head == "z")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "z";
+                        cabezal++;
+
+                    }
+
+                    Maquina2(estado, cabezal);
+                    break;
+                case 2:
+                    if (head == "a")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        cabezal++;
+
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "b";
+                        cabezal++;
+
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "c";
+                        cabezal++;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = "y";
+                        cabezal--;
+                        dgv.Rows.Add(" ");
+                    }
+                    else if (head == "x")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal++;
+
+                    }
+                    else if (head == "y")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "y";
+                        cabezal++;
+
+                    }
+                    else if (head == "z")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "z";
+                        cabezal++;
+
+                    }
+
+                    Maquina2(estado, cabezal);
+                    break;
+                case 3:
+                    if (head == "a")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        cabezal++;
+
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "b";
+                        cabezal++;
+
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "c";
+                        cabezal++;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = "z";
+                        cabezal--;
+                        dgv.Rows.Add(" ");
+
+                    }
+                    else if (head == "x")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal++;
+
+                    }
+                    else if (head == "y")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "y";
+                        cabezal++;
+
+                    }
+                    else if (head == "z")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "z";
+                        cabezal++;
+
+                    }
+
+                    Maquina2(estado, cabezal);
+                    break;
+                case 4:
+                    if (head == "a")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        cabezal--;
+
+                    }
+                    else if (head == "b")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = "b";
+                        cabezal--;
+
+                    }
+                    else if (head == "c")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = "c";
+                        cabezal--;
+
+                    }
+                    else if (head == "" || head == " ")
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+
+                    }
+                    else if (head == "x")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = "x";
+                        cabezal--;
+
+                    }
+                    else if (head == "y")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = "y";
+                        cabezal--;
+
+                    }
+                    else if (head == "z")
+                    {
+                        estado = 4;
+                        dgv.Rows[cabezal].Cells[0].Value = "z";
+                        cabezal--;
+
+                    }
+
+                    Maquina2(estado, cabezal);
+                    break;
+                case 5:
+                    if (head == "" || head == " ")
+                    {
+                        estado = 6;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+
+                    }
+                    else if (head == "x")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        cabezal--;
+
+                    }
+                    else if (head == "y")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "b";
+                        cabezal--;
+
+                    }
+                    else if (head == "z")
+                    {
+                        estado = 5;
+                        dgv.Rows[cabezal].Cells[0].Value = "c";
+                        cabezal--;
+
+                    }
+
+                    Maquina2(estado, cabezal);
+                    break;
+                case 6:
+                    break;
+
+            }
+        }
+
+        public void Maquina4 (int estado, int cabezal)
+        {
+            string head = dgv.Rows[cabezal].Cells[0].Value.ToString();
+
+            switch (estado)
+            {
+                case 0:
+
+                    if (head == "1")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+
+                    } else if (head == "+")
+                    {
+                        estado = 3;
+                        dgv.Rows[cabezal].Cells[0].Value = "";
+                        cabezal++;
+
+                    } else if(head == " " || head == null || head == "")
+                    {
+                        //nada
+                    }
+
+                    Maquina4(estado, cabezal);
+                    break;
+                case 1:
+
+                    if (head == "1")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "1";
+                        cabezal++;
+
+                    }
+                    else if (head == "+")
+                    {
+                        estado = 1;
+                        dgv.Rows[cabezal].Cells[0].Value = "+";
+                        cabezal++;
+
+                    }
+                    else if (head == " " || head == null || head == "")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "1";
+                        cabezal--;
+                        dgv.Rows.Add(" ");
+                    }
+                    Maquina4(estado, cabezal);
+                    break;
+                case 2:
+
+                    if (head == "1")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "1";
+                        cabezal--;
+
+                    }
+                    else if (head == "+")
+                    {
+                        estado = 2;
+                        dgv.Rows[cabezal].Cells[0].Value = "+";
+                        cabezal--;
+
+                    }
+                    else if (head == " " || head == null || head == "")
+                    {
+                        estado = 0;
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
+                        cabezal++;
+                        
+                    }
+                    Maquina4(estado, cabezal);
+                    break;
+                case 3:
+
+                    break;
+                default:
+                    break;
+            }
+
+
         }
 
         public void Maquina5 (int estado, int cabezal)
@@ -182,98 +585,10 @@ namespace Proyecto2
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             LlenarDGV();
-
-            Maquina4(0, 1);
-        }
-
-        public void Maquina4 (int estado, int cabezal)
-        {
-            string head = dgv.Rows[cabezal].Cells[0].Value.ToString();
-
-            switch (estado)
-            {
-                case 0:
-
-                    if (head == "1")
-                    {
-                        estado = 1;
-                        dgv.Rows[cabezal].Cells[0].Value = " ";
-                        cabezal++;
-
-                    } else if (head == "+")
-                    {
-                        estado = 3;
-                        dgv.Rows[cabezal].Cells[0].Value = "";
-                        cabezal++;
-
-                    } else if(head == " " || head == null || head == "")
-                    {
-                        //nada
-                    }
-
-                    Maquina4(estado, cabezal);
-                    break;
-                case 1:
-
-                    if (head == "1")
-                    {
-                        estado = 1;
-                        dgv.Rows[cabezal].Cells[0].Value = "1";
-                        cabezal++;
-
-                    }
-                    else if (head == "+")
-                    {
-                        estado = 1;
-                        dgv.Rows[cabezal].Cells[0].Value = "+";
-                        cabezal++;
-
-                    }
-                    else if (head == " " || head == null || head == "")
-                    {
-                        estado = 2;
-                        dgv.Rows[cabezal].Cells[0].Value = "1";
-                        cabezal--;
-                        dgv.Rows.Add(" ");
-                    }
-                    Maquina4(estado, cabezal);
-                    break;
-                case 2:
-
-                    if (head == "1")
-                    {
-                        estado = 2;
-                        dgv.Rows[cabezal].Cells[0].Value = "1";
-                        cabezal--;
-
-                    }
-                    else if (head == "+")
-                    {
-                        estado = 2;
-                        dgv.Rows[cabezal].Cells[0].Value = "+";
-                        cabezal--;
-
-                    }
-                    else if (head == " " || head == null || head == "")
-                    {
-                        estado = 0;
-                        dgv.Rows[cabezal].Cells[0].Value = " ";
-                        cabezal++;
-                        
-                    }
-                    Maquina4(estado, cabezal);
-                    break;
-                case 3:
-
-                    break;
-                default:
-                    break;
-            }
-
-
+            Maquina2(0, 1);
         }
     }
 }
