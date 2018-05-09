@@ -37,6 +37,12 @@ namespace Proyecto2
             Maquina4(0, 1);
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            LlenarDGV();
+            Maquina3(0, 1);
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             LlenarDGV();
@@ -1120,10 +1126,6 @@ namespace Proyecto2
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            LlenarDGV();
-            Maquina3(0, 1);
-        }
+
     }
 }
