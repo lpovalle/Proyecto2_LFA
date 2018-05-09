@@ -33,26 +33,61 @@ namespace Proyecto2
 
         private void button5_Click(object sender, EventArgs e)
         {
-            LlenarDGV();
-            Maquina4(0, 1);
+            try
+            {
+                LlenarDGV();
+                Maquina4(0, 1);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocurrió el siguiente problema: " + ex);
+            }
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            LlenarDGV();
-            Maquina3(0, 1);
+            try
+            {
+                LlenarDGV();
+                Maquina3(0, 1);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Se presento un problema: " + ex);
+            }
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LlenarDGV();
-            Maquina2(0, 1);
+            try
+            {
+                LlenarDGV();
+                Maquina2(0, 1);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocurrio un problema: " + ex);
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LlenarDGV();
-            Maquina1(0, 1);
+            try
+            {
+                LlenarDGV();
+                Maquina1(0, 1);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrio el siguiente problema: " + ex);
+            }
+            
         }
 
         public void LlenarDGV()
@@ -74,8 +109,8 @@ namespace Proyecto2
 
         public void Maquina1(int estado, int cabezal)
         {
-            string head = dgv.Rows[cabezal].Cells[0].Value.ToString();
 
+            string head = dgv.Rows[cabezal].Cells[0].Value.ToString();
             switch (estado)
             {
                 case 0:
@@ -106,6 +141,10 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = " ";
                         cabezal++;
 
+                    }
+                    else
+                    {
+                        throw new Exception("No es un palindromo");
                     }
 
                     Maquina1(estado, cabezal);
@@ -138,6 +177,10 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = " ";
                         cabezal--;
 
+                    }
+                    else
+                    {
+                        throw new Exception("No es un palindromo");
                     }
 
                     Maquina1(estado, cabezal);
@@ -172,6 +215,10 @@ namespace Proyecto2
                         cabezal--;
 
                     }
+                    else
+                    {
+                        throw new Exception("No es un palindromo");
+                    }
 
                     Maquina1(estado, cabezal);
                     break;
@@ -204,13 +251,17 @@ namespace Proyecto2
                         cabezal--;
 
                     }
+                    else
+                    {
+                        throw new Exception("No es un palindromo");
+                    }
 
                     Maquina1(estado, cabezal);
                     break;
                 case 4:
                     if(head == "a")
                     {
-                        throw new Exception("No es palindromo");
+                        throw new Exception("No es un palindromo");
                     }
                     else if(head == "b")
                     {
@@ -229,6 +280,10 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = " ";
                         cabezal++;
 
+                    }
+                    else
+                    {
+                        throw new Exception("No es un palindromo");
                     }
 
                     Maquina1(estado, cabezal);
@@ -262,6 +317,11 @@ namespace Proyecto2
                         cabezal++;
 
                     }
+                    else
+                    {
+                        throw new Exception("No es un palindromo");
+                    }
+
 
                     Maquina1(estado, cabezal);
                     break;
@@ -269,7 +329,7 @@ namespace Proyecto2
                     if (head == "a")
                     {
                         estado = 5;
-                        dgv.Rows[cabezal].Cells[0].Value = "a";
+                        dgv.Rows[cabezal].Cells[0].Value = " ";
                         cabezal--;
 
                     }
@@ -287,6 +347,10 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = " ";
                         cabezal++;
 
+                    }
+                    else
+                    {
+                        throw new Exception("No es un palindromo");
                     }
 
                     Maquina1(estado, cabezal);
@@ -307,18 +371,21 @@ namespace Proyecto2
                     {
                         throw new Exception("No es un palíndromo");
                     }
-
                     else if (head == "" || head == " ")
                     {
                         estado = 8;
                         dgv.Rows[cabezal].Cells[0].Value = " ";
                         cabezal++;
                     }
+                    else
+                    {
+                        throw new Exception("No es un palindromo");
+                    }
 
                     Maquina1(estado, cabezal);
                     break;
                 case 8:
-                   // MessageBox.Show("Palindromo");
+                        MessageBox.Show("Palíndromo");
                     break;
                 default:
                     break;
@@ -382,6 +449,10 @@ namespace Proyecto2
                         cabezal++;
 
                     }
+                    else
+                    {
+                        throw new Exception("Cadena no válida");
+                    }
 
 
                     Maquina2(estado, cabezal);
@@ -437,6 +508,10 @@ namespace Proyecto2
                         cabezal++;
 
                     }
+                    else
+                    {
+                        throw new Exception("Cadena no válida");
+                    }
 
                     Maquina2(estado, cabezal);
                     break;
@@ -489,6 +564,10 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = "z";
                         cabezal++;
 
+                    }
+                    else
+                    {
+                        throw new Exception("Cadena no válida");
                     }
 
                     Maquina2(estado, cabezal);
@@ -544,6 +623,10 @@ namespace Proyecto2
                         cabezal++;
 
                     }
+                    else
+                    {
+                        throw new Exception("Cadena no válida");
+                    }
 
                     Maquina2(estado, cabezal);
                     break;
@@ -597,6 +680,10 @@ namespace Proyecto2
                         cabezal--;
 
                     }
+                    else
+                    {
+                        throw new Exception("Cadena no válida");
+                    }
 
                     Maquina2(estado, cabezal);
                     break;
@@ -628,6 +715,10 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = "c";
                         cabezal--;
 
+                    }
+                    else
+                    {
+                        throw new Exception("Cadena no válida");
                     }
 
                     Maquina2(estado, cabezal);
@@ -679,7 +770,6 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = "x";
                         cabezal++;
                     }
-
                     else
                     {
                         throw new Exception("Símbolos incorrectos.");
@@ -882,6 +972,7 @@ namespace Proyecto2
                     {
                         throw new Exception("Símbolos incorrectos.");
                     }
+
                     Maquina3(estado, cabezal);
                     break;
                 case 7:
@@ -901,6 +992,7 @@ namespace Proyecto2
                     {
                         throw new Exception("Símbolos incorrectos.");
                     }
+
                     Maquina3(estado, cabezal);
                     break;
                 case 8:
@@ -922,15 +1014,17 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = " ";
                         cabezal++;
 
-                    } else if (head == "+")
+                    }
+                    else if (head == "+")
                     {
                         estado = 3;
                         dgv.Rows[cabezal].Cells[0].Value = "";
                         cabezal++;
 
-                    } else if(head == " " || head == null || head == "")
+                    }
+                    else
                     {
-                        //nada
+                        throw new Exception("Cadena no válida");
                     }
 
                     Maquina4(estado, cabezal);
@@ -958,6 +1052,10 @@ namespace Proyecto2
                         cabezal--;
                         dgv.Rows.Add(" ");
                     }
+                    else{
+                        throw new Exception("Cadena no válida");
+                    }
+
                     Maquina4(estado, cabezal);
                     break;
                 case 2:
@@ -983,6 +1081,11 @@ namespace Proyecto2
                         cabezal++;
                         
                     }
+                    else
+                    {
+                        throw new Exception("Cadena no válida");
+                    }
+
                     Maquina4(estado, cabezal);
                     break;
                 case 3:
@@ -991,8 +1094,6 @@ namespace Proyecto2
                 default:
                     break;
             }
-
-
         }
 
         public void Maquina5 (int estado, int cabezal)
@@ -1012,17 +1113,21 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = "1";
                         cabezal++;
                     }
-                    else if(head == "-")
+                    else if (head == "-")
                     {
                         estado = 0;
                         dgv.Rows[cabezal].Cells[0].Value = "-";
                         cabezal++;
                     }
-                    else if(head == null || head == " " || head == "")
+                    else if (head == null || head == " " || head == "")
                     {
                         estado = 1;
                         dgv.Rows[cabezal].Cells[0].Value = " ";
                         cabezal--;
+                    }
+                    else
+                    {
+                        throw new Exception("Cadena no válida");
                     }
 
                     Maquina5(estado, cabezal);
@@ -1043,9 +1148,9 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = " ";
                         cabezal++;
                     }
-                    else if (head == null || head == " ")
+                    else
                     {
-                         //no se puede
+                        throw new Exception("Cadena no válida");
                     }
 
                     Maquina5(estado, cabezal);
@@ -1072,6 +1177,10 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = " ";
                         cabezal++;
                     }
+                    else
+                    {
+                        throw new Exception("Cadena no válida");
+                    }
 
                     Maquina5(estado, cabezal);
 
@@ -1091,9 +1200,9 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = "-";
                         cabezal++;
                     }
-                    else if (head == null || head == " ")
+                    else
                     {
-                        //no se puede
+                        throw new Exception("Cadena no válida");
                     }
 
                     Maquina5(estado, cabezal);
@@ -1114,9 +1223,9 @@ namespace Proyecto2
                         dgv.Rows[cabezal].Cells[0].Value = "-";
                         cabezal--;
                     }
-                    else if (head == null || head == " ")
+                    else
                     {
-                        //no se puede
+                        throw new Exception("Cadena no válida");
                     }
 
                     Maquina5(estado, cabezal);
@@ -1126,6 +1235,19 @@ namespace Proyecto2
             }
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

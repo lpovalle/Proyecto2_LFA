@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.tbxInput = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -38,12 +39,18 @@
             this.dgv = new System.Windows.Forms.DataGridView();
             this.Cadena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cabezal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.t1 = new System.Windows.Forms.Timer(this.components);
+            this.lb1 = new System.Windows.Forms.Label();
+            this.t2 = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(354, 12);
+            this.button1.Location = new System.Drawing.Point(249, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(32, 23);
             this.button1.TabIndex = 0;
@@ -53,14 +60,15 @@
             // 
             // tbxInput
             // 
-            this.tbxInput.Location = new System.Drawing.Point(114, 76);
+            this.tbxInput.Location = new System.Drawing.Point(89, 79);
             this.tbxInput.Name = "tbxInput";
-            this.tbxInput.Size = new System.Drawing.Size(144, 20);
+            this.tbxInput.Size = new System.Drawing.Size(131, 20);
             this.tbxInput.TabIndex = 1;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(64, 118);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(29, 124);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(44, 41);
             this.button2.TabIndex = 2;
@@ -70,7 +78,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(114, 118);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(79, 124);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(44, 41);
             this.button3.TabIndex = 3;
@@ -80,7 +89,8 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(164, 118);
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(129, 124);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(44, 41);
             this.button4.TabIndex = 4;
@@ -90,7 +100,8 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(214, 118);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(179, 124);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(44, 41);
             this.button5.TabIndex = 5;
@@ -100,7 +111,8 @@
             // 
             // btn_M5
             // 
-            this.btn_M5.Location = new System.Drawing.Point(264, 118);
+            this.btn_M5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_M5.Location = new System.Drawing.Point(229, 124);
             this.btn_M5.Name = "btn_M5";
             this.btn_M5.Size = new System.Drawing.Size(44, 41);
             this.btn_M5.TabIndex = 6;
@@ -120,11 +132,11 @@
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cadena,
             this.cabezal});
-            this.dgv.Location = new System.Drawing.Point(123, 197);
+            this.dgv.Location = new System.Drawing.Point(89, 190);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.RowHeadersWidth = 15;
-            this.dgv.Size = new System.Drawing.Size(135, 349);
+            this.dgv.Size = new System.Drawing.Size(134, 349);
             this.dgv.TabIndex = 7;
             // 
             // Cadena
@@ -141,11 +153,27 @@
             this.cabezal.ReadOnly = true;
             this.cabezal.Width = 60;
             // 
+            // lb1
+            // 
+            this.lb1.AutoSize = true;
+            this.lb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb1.Location = new System.Drawing.Point(75, 35);
+            this.lb1.Name = "lb1";
+            this.lb1.Size = new System.Drawing.Size(148, 20);
+            this.lb1.TabIndex = 8;
+            this.lb1.Text = "Máquinas de Turing";
+            this.lb1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 574);
+            this.ClientSize = new System.Drawing.Size(301, 574);
+            this.Controls.Add(this.lb1);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.btn_M5);
             this.Controls.Add(this.button5);
@@ -157,6 +185,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -175,6 +204,12 @@
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cadena;
         private System.Windows.Forms.DataGridViewTextBoxColumn cabezal;
+        private System.Windows.Forms.Timer t1;
+        private System.Windows.Forms.Label lb1;
+        private System.Windows.Forms.Timer t2;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer4;
     }
 }
 
